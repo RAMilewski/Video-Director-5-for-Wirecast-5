@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title id="title">Video Director 4</title>
-	
+	<title id="title">Video Director 5</title>
+
 	<style type="text/css">
 	
 	h1 {
@@ -93,19 +93,19 @@
 
 <body>
 	<article>
-	<h1>Video Director 4</h1>
+	<h1>Video Director 5</h1>
 	
 	<section>
-		<p>Video Director 4 is a script designed to enable control of Wirecast 4 from a Korg nanoKONTROL2 midi control surface on MacOS X computers.  The Korg nanoKONTROL2 is a low-cost solution to providing a tactile interface which, while not as elegant as a real production video switcher, provides much more tactile feedback than trying to control a video production with a mouse or touchpad.</p>
-		<p>In addition to simply providing real physical buttons for video switching operations, Video Director 4 also simplifies the process of populating the various control layers of Wirecast with video and graphic content.  It will load layer content from a pre-defined directory structure on the host machine, allowing rapid re-configuration of Wirecast for programs with differing content requirements.</p>
-		<p>The functionality of Video Director 4 is limited by the very restricted subset of Wirecast operations for which Telestream has exposed a scriptable interface. The most obvious omission is that there appears to be no way to script the master audio level control, either through the Wirecast API or via System Events scripting. For a control surface such as the Korg NanoKontrol with its many sliders and knobs, this is a galling omission.</p>
-		<p>This version of Video Director 4 is not intended to be used with Wirecast 5.<p>
+		<p>Video Director 5 is a script designed to enable control of Wirecast 4 from a Korg nanoKONTROL2 midi control surface on MacOS X computers.  The Korg nanoKONTROL2 is a low-cost solution to providing a tactile interface which, while not as elegant as a real production video switcher, provides much more tactile feedback than trying to control a video production with a mouse or touchpad.</p>
+		<p>In addition to simply providing real physical buttons for video switching operations, Video Director 5 also simplifies the process of populating the various control layers of Wirecast with video and graphic content.  It will load layer content from a pre-defined directory structure on the host machine, allowing rapid re-configuration of Wirecast for programs with differing content requirements.</p>
+		<p>The functionality of Video Director 5 is limited by the very restricted subset of Wirecast operations for which Telestream has exposed a scriptable interface. The most obvious omission is that there appears to be no way to script the master audio level control, either through the Wirecast API or via System Events scripting. For a control surface such as the Korg NanoKontrol with its many sliders and knobs, this is a galling omission.</p>
+		<p>This version of Video Director 5 is not intended to be used with Wirecast 4.<p>
 	</section>
 	
 	<section>
 		<h2>Set-up</h2>
 		<p>Begin by installing the midi drivers for the nanoKONTROL2.  Downloadable drivers are on the <a href="http://www.korg.com/support">Korg support web page</a>, along with firmware updaters for the control surface. (Select nanoSERIES2 from the drop-down widget on that page).</p>
-		<p>From the same page, download the current version of the Korg Kontrol Editor.  This program can be used to remap the midi control codes sent by individual controls on the device.  This version of Video Director 4 uses the default factory code mapping, but you should use the "button behavior" option on the drop-down box to change the behavior of the Stop, Play, and Record buttons from "momentary" to "toggle".  These are the buttons with control codes 42, 41, and 45 respectively.</p>
+		<p>From the same page, download the current version of the Korg Kontrol Editor.  This program is used to remap the midi control codes sent by individual controls on the device. </p>
 		
 		<h3>MidiPipe</h3>
 		<p>Next, install <a href="http://www.subtlesoft.square7.net/MidiPipe.html">Nico Wald's MidiPipe</a>. This program pipes control codes from the nanoKONTROL2 to AppleScript. MidiPipe is a strikingly useful utility for controlling all sorts of things from any midi control surface, not just the nanoKONTROL2. You'll find it useful for all sorts of projects.  Please consider making a modest donation to Nico to ensure that we have MidiPipe for future revs of Mac OS. Most of his users are starving musicians, so supporting this product is especially important.</p>
@@ -115,6 +115,10 @@
 		<li>Audio</li><li>Cameras</li><li>Logos</li><li>Media Player</li><li>Scripts</li><li>Titles</li></ul>
 		Some of these directories will be empty.  More on that later.</p>
 		
+		<h3>Control Configuration</h3>
+		<p>Connect your nanoKONTROL2 to your computer and open the Korg Kontrol Editor.  From the File menu of the Korg Kontrol Editor, open the file VideoDirector5.nktrl2_data. From the Communication menu, choose Write Scene Data. This will reconfigure your nanoKONTROL2 to work with Video Director 5. </p>
+		
+		
 		<h3>VideoDirector.wcst</h3>
 		<p>Open Wirecast and do the following:<ul>
 		<li>Verify that your Broadcast settings are correct.</li>
@@ -122,20 +126,20 @@
 		<li>Rename the Master Layers.  From top to bottom they should be named "Titles", "Logos", "Cameras", "Audio", "Media Player". (You can rename a layer by double-clicking on the layer name).</li>
 		<li>Set up any camera shots in the Cameras layer.  This would include USB cameras and video capture devices.
 		</ul>
-		Choose <b>Save As...</b> from the <b>File</b> menu, and save this configuration as "VideoDirector4.wcst" in the VideoDirector folder of your Documents folder.  From now on, except as noted below, you will not change this file.  <b><i>Do not save changes when closing Wirecast.</i></b></p>
+		Choose <b>Save As...</b> from the <b>File</b> menu, and save this configuration as "VideoDirector5.wcst" in the VideoDirector folder of your Documents folder.  From now on, except as noted below, you will not change this file.  <b><i>Do not save changes when closing Wirecast.</i></b></p>
 		
 		<h3>Program Content</h3>
 		<p>Next, populate the directories we created above with any non-camera shots you use in your program. The different directories are for holding specific kinds of content:</p>
 		<blockquote>The <b>Titles and Logos</b> directories are used for graphics with transparent backgrounds. Items in these directories can be made to appear over your live camera shots.  Since there are two such directories you can independently control two graphic overlays. If you have two items you wish to appear together place one in each directory.</blockquote>
 		<blockquote>The <b>Cameras</b> directory is normally empty because there is no file representation for a live camera.  This is why we configured the camera and saved it in the "empty" VideoDirector.wcst file.</blockquote>
-		<blockquote>The <b>Audio</b> directory can be used for audio recordings, such as sound effects, that you want to include in your program. Live microphones could also be configured on the Audio Layer in Wirecast, but as with live cameras, there is no way to save those configurations anywhere except the "empty" Video Director 4.wcst file.</blockquote>
-		<blockquote>The <b>Backgrounds</b> directory is the place to put full-screen slides and any pre-recorded video segments you want to play during your program.</blockquote>
-		<p><b>A note about naming files:</b> Except for files in the Backgrounds directory, the first three files in each directory will be accessible at the press of a single button on the nanoKONTROL2.  If you have more than three files for any one layer you may want to rename the files to ensure they are loaded in the proper order. You can prefix the file name with "1-", "2-", "3-".  For the Backgrounds directory, the first seven files will have dedicated buttons assigned.</p>
+		<blockquote>The <b>Audio</b> directory can be used for audio recordings, such as sound effects, that you want to include in your program. Live microphones could also be configured on the Audio Layer in Wirecast, but as with live cameras, there is no way to save those configurations anywhere except the "empty" Video Director 5.wcst file.</blockquote>
+		<blockquote>The <b>Media Player</b> directory is the place to put full-screen slides and any pre-recorded video segments you want to play during your program.</blockquote>
+		<p><b>A note about naming files:</b> Except for files in the Media Player directory, the first three files in each directory will be accessible at the press of a single button on the nanoKONTROL2.  If you have more than three files for any one layer you may want to rename the files to ensure they are loaded in the proper order. You can prefix the file name with "1-", "2-", "3-".  For the Media Player directory, the first seven files will have dedicated buttons assigned.</p>
 		
 		<h2>Operation</h2>
-		<p>If you have not yet used the Korg configuration application to change the Stop, Play and Record buttons, to "toggle" mode, you should do that now.  Consult the documentation that comes with the configuration program. </p>
+		<p>If you have not yet used the Korg configuration application to load the nonoKontrol2 configuration as outlined above, you should do that now. </p>
 		
-		<p> Plug your nanoKONTROL2 into your computer.  Close Wirecast if it is open.  Open the MidiPipe application and then open the file named VideoDirector4.mipi in the Scripts directory we created above.  </p>
+		<p> Plug your nanoKONTROL2 into your computer.  Close Wirecast if it is open.  Open the MidiPipe application and then open the file named VideoDirector5.mipi in the Scripts directory we created above.  </p>
 
 		
 		<div class="btnTrack"></div><p class="up75"> Look for the two arrow buttons under the "Track" legend. Press the button pointing to the right and Wirecast will open.  Click on the different layers and you should see the files you loaded into the layer directories.  Press the button point to the left and Wirecast will close your layer media files.</p>
@@ -149,7 +153,7 @@
 		
 		<div class="btn M"></div><p class="up60">The middle (M) row controls the Camera and Audio layers.  The four left "M" buttons, again tinted green in the picture, control the Cameras layer.  The four right "M" buttons, tinted red, control the Audio layer.</p>
 		
-		<div class="btn R"></div><p class="up60">The lower (R) row controls the Backgrounds layer.  This row is not split and all eight buttons in this row can be used to control images in this layer.</p>
+		<div class="btn R"></div><p class="up60">The lower (R) row controls the Media Player layer.  This row is not split and all eight buttons in this row can be used to control images in this layer.</p>
 		
 		<p>&nbsp;</p>
 		 
@@ -171,11 +175,11 @@
 		
 		<p>&nbsp;</p>
 		
-		<div class="btn Rec"></div><p class="up60">The Record button is used to start and stop recording.  It also should have already been set to "toggle" mode.</p>
+		<div class="btn Rec"></div><p class="up60">The Record button is used to start and stop recording. </p>
 		
 		<p>&nbsp;</p>
 		
-		<p>The two remaining buttons are used to call Applescripts which are expected to be in the Scripts folder of the VideoDirector4 folder. These scripts are intended to be used to perform compound operations such as running the introduction and closing title sequences of programs, but you can use them to perform any scriptable action on the machine running Wirecast.  Construction of these scripts is left as an exercise for the reader.<p>
+		<p>The two remaining buttons are used to call Applescripts which are expected to be in the Scripts folder of the VideoDirector5 folder. These scripts are intended to be used to perform compound operations such as running the introduction and closing title sequences of programs, but you can use them to perform any scriptable action on the machine running Wirecast.  Construction of these scripts is left as an exercise for the reader.<p>
 		
 		<div class="btn FF"></div><p class="up60">The Fast-Forward button triggers a script named "Intro.scpt" in the Scripts folder if one exists.</p>
 		
