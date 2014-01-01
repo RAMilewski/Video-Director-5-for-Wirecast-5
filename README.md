@@ -11,4 +11,4 @@ This version of VideoDirector5 is not intended to be used with Wirecast 4.
 
 Download the zip archive, unzip and place the VideoDirector5 folder in the Documents folder of your wirecast machine.  VideoDirector4/docs/index.html contains complete configuration and operation instructions.
 
-VideoDirector 5 is still pre-release code.  Expect bugs and changes.  Check back often.
+VideoDirector5 is still pre-release code. Expect bugs and changes.  Telestream appears to have made changes between Wirecast 4 and Wirecast 5 that make scripting more difficult and the performance of VideoDirector5 is substantially worse than VideoDirector4 used with Wirecast 4   Check back often, we'll see if things improve over the next couple of Wirecast 5 releases.
